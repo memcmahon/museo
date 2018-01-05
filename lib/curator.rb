@@ -24,4 +24,10 @@ class Curator
     @artists << Artist.new(info)
   end
 
+  def find_museum(id)
+    @museums.select do |museum|
+      museum.id == id
+    end[0]
+  end
+
 end

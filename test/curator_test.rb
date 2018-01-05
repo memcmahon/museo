@@ -42,4 +42,13 @@ class CuratorTest < Minitest::Test
     assert_equal 1, curator.photographs.first.id
 
   end
+
+  def test_it_can_find_museums
+    curator = Curator.new
+    curator.add_museum({id: 1, name: "Museo de Arte Moderno"})
+    museum = curator.find_museum(1)
+
+    assert_equal 1, museum.id
+    assert_equal "Museo de Arte Moderno", museum.name
+  end
 end
